@@ -307,13 +307,16 @@ modules:
           pattern: "<link>(https://sourceforge.net/projects/ed448goldilocks/files/libdecaf-([\\d\\.]+\\d).tgz)/download</link>"
       - type: archive
         dest: external/linphone-sdk/external/gsm
-        url: https://www.quut.com/gsm/gsm-1.0.24.tar.gz
+        # Alternative mirror to:
+        # url: https://www.quut.com/gsm/gsm-1.0.24.tar.gz
+        url: https://downloads.sourceforge.net/project/gsm-mirror/gsm-1.0.24.tar.gz
         disable-http-decompression: true
         sha256: a3c40c6471928383f4abfcb2e8f24012a1f562be2f17b8d672145d5986681a92
         x-checker-data:
           type: anitya
           project-id: 12587
           stable-only: true
+          # Not that this is expected to ever receive an update
           url-template: https://www.quut.com/gsm/gsm-$version.tar.gz
       - type: archive
         dest: external/linphone-sdk/external/jsoncpp
