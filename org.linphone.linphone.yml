@@ -76,8 +76,8 @@ modules:
       - --without-systemd
     sources:
       - type: archive
-        url: https://github.com/openldap/openldap/archive/refs/tags/OPENLDAP_REL_ENG_2_6_13.tar.gz
-        sha256: dd5be2f8e7deab34d1afc3babb7ad29fd1391860b321ffdbcab4ed7a5dfccf76
+        url: https://github.com/openldap/openldap/archive/refs/tags/OPENLDAP_REL_ENG_2_6_15.tar.gz
+        sha512: 9e0e73030d8bec0d7e94b9f84791c8c4dfdccdb60425f2fc87cedb4306f8827b991b4337db111c97c6c3ba515376356f87df8195952991e79ee97ea01ff04405
         x-checker-data:
           type: anitya
           project-id: 2551
