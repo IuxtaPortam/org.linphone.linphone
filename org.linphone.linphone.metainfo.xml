@@ -68,23 +68,21 @@
     <category>Telephony</category>
   </categories>
   <releases>
-    <release version="6.1.2" date="2026-04-03">
+    <release version="6.2.3" date="2026-09-22">
       <description>
-        <p>Added</p>
-        <ul>
-          <li>New setting to enable or disable auto check for new version on start</li>
-          <li>Accessibility improvements (visible focus on buttons to facilitate key navigation,
-            start call by pressing Enter...)</li>
-        </ul>
         <p>Fixed</p>
         <ul>
-          <li>UI improvements and fixes</li>
-          <li>Crash and bug fixes</li>
+          <li>UI fixes (margins, layout, items visibility/overlap)</li>
+          <li>Fix blinking audio devices in multimedia settings during a call</li>
+          <li>Fix blinking video stickers when someone enters/leave an ongoing meeting</li>
+          <li>Use MSQOGL by default to avoid using native openGL library which misses some extensions</li>
         </ul>
         <p>Changed</p>
         <ul>
-          <li>SDK version is now 5.4.104</li>
-          <li>Qt version is now 6.10.2 (Qt &lt; 6.9 is deprecated because of the emojis rendering)</li>
+          <li>Translations update</li>
+          <li>SDK version is now 5.5.23</li>
+          <li>Use native emojis in the emoji selector (emojis display depends on the OS)</li>
+          <li>Bugsplat symbols version updated to 11.0.0</li>
         </ul>
       </description>
     </release>

@@ -174,6 +174,8 @@ modules:
       - -DBUILD_MBEDTLS=OFF
       - -DBUILD_OPENLDAP=OFF
       - -DBUILD_OPUS=OFF
+      - -DENABLE_RNNOISE=OFF
+      - -DBUILD_RNNOISE=OFF
       - -DBUILD_LIBJPEGTURBO=OFF
       - -DBUILD_LIBVPX=OFF
       - -DBUILD_LIBXML2=OFF
@@ -196,16 +198,16 @@ modules:
       # While this seems redundandt, without this `bctoolbox` is not buildable from archive, as cmake would try to use git to read the repo
       - -DLINPHONESDK_VERSION=5.4.106 # Also Linphone-desktop needs this
       # While this seems redundandt, without this `bctoolbox` is not buildable from archive, as cmake would try to use git to read the repo
-      - -DLINPHONEAPP_VERSION=6.1.2
-      - -DGIT_BRANCH_NAME=6.1.2
+      - -DLINPHONEAPP_VERSION=6.2.3
+      - -DGIT_BRANCH_NAME=6.2.3
       # Option added by `CMake-flatpak-packaging.patch`
       - -DFLATPAK_ID=org.linphone.linphone
     post-install:
       - desktop-file-edit --set-key="Icon" --set-value="${FLATPAK_ID}" ${FLATPAK_DEST}/share/applications/linphone.desktop
     sources:
       - type: archive
-        url: https://github.com/BelledonneCommunications/linphone-desktop/archive/refs/tags/6.1.2.tar.gz
-        sha256: 45b8c4f1bf98aadc794172b8fd10a6f7a2c5fb8d1c3f6b8dd3645bae50f0e848
+        url: https://github.com/BelledonneCommunications/linphone-desktop/archive/refs/tags/6.2.3.tar.gz
+        sha512: 70bc91e450d8a39079f451f7d26213b390a4e6aaec72800378092228120f1013a20bafe5c4f1d1f256e57846a6869c73353c68c7fd8fb3d604222b41fcd48e05
         x-checker-data:
           type: anitya
           project-id: 1823
@@ -213,77 +215,22 @@ modules:
           url-template: https://github.com/BelledonneCommunications/linphone-desktop/archive/refs/tags/$version.tar.gz
       - type: archive
         dest: external/linphone-sdk
-        url: https://github.com/BelledonneCommunications/linphone-sdk/archive/refs/tags/5.4.104.tar.gz
-        sha256: dc3902c3db5e3a5cb34d4ac629e2ca5314e9a16ceef8ea045545d133b438fed4
-      - type: archive
-        dest: external/linphone-sdk/belr
-        url: https://github.com/BelledonneCommunications/belr/archive/refs/tags/5.4.106.tar.gz
-        sha256: f58cf4d4484804a0ebcc5be6237a6f910cd5b17076bbea77ebdf77f049636c40
+        url: https://github.com/BelledonneCommunications/linphone-sdk/archive/refs/tags/5.5.23.tar.gz
+        sha512: 96c786acf782c4122bcea131870b96327ca7538c3fd377a839a61945e9384b71580af97307415dc8715505ee51b4fcadfa2d4f43fa7e8bb4a3f7efa9fee5f384
       - type: archive
         dest: external/linphone-sdk/bcg729
-        url: https://github.com/BelledonneCommunications/bcg729/archive/8bec1e5fc072f3669e435edd137eb3da6da2eef7.tar.gz
-        sha256: 62812779c776620f8fa005fc7c6ae14039d7b2efce66cf9af69c426393b5d062
+        url: https://github.com/BelledonneCommunications/bcg729/archive/refs/tags/1.1.2.tar.gz
+        sha512: 54befb0795176cbb7a37aa222491634b67e79268beaecc4713a3020d64773682ff78ec9c5d8c223c05ef939a38b64c85df9a79708f5f2647643ce4329abc29a8
       - type: archive
         dest: external/linphone-sdk/bcmatroska2
-        # This is the latest anyway up to 5.6.0-alpha only 5.4.106 is missing
-        url: https://github.com/BelledonneCommunications/bcmatroska2/archive/refs/tags/5.4.102.tar.gz
-        sha256: f99bdc4077a02c4b3869cf5ad3d49fd8b4d5b049f61c550f9a6f7b685ccfdc45
-      - type: archive
-        dest: external/linphone-sdk/bctoolbox
-        url: https://github.com/BelledonneCommunications/bctoolbox/archive/refs/tags/5.4.106.tar.gz
-        sha256: 0ad18b7e7da04c6ec53a4549e31e5518ec2ecb8372f26b8b5f4d220554f05e8e
-      - type: archive
-        dest: external/linphone-sdk/bcunit
-        # Same as all the releases in the 5.4.X series only 5.4.106 is missing
-        url: https://github.com/BelledonneCommunications/bcunit/archive/refs/tags/5.5.0-alpha.tar.gz
-        sha256: 7489f9ee58e87f8c89a0dbbe0b787e9337859e16ab0a031c11729a659ab88d6d
-      - type: archive
-        dest: external/linphone-sdk/belcard
-        url: https://github.com/BelledonneCommunications/belcard/archive/refs/tags/5.4.106.tar.gz
-        sha256: 12fcb7fbd6b55010c5e986a8f8bd63baf184c164b60b3a15e97ff783775dc3e4
-      - type: archive
-        dest: external/linphone-sdk/belle-sip
-        url: https://github.com/BelledonneCommunications/belle-sip/archive/refs/tags/5.4.106.tar.gz
-        sha256: 564da0e09847d6854a263bc1d7cd875bf83b19871eaf8114febbd48637baa544
-      - type: archive
-        dest: external/linphone-sdk/bzrtp
-        url: https://github.com/BelledonneCommunications/bzrtp/archive/refs/tags/5.4.106.tar.gz
-        sha256: fca7405b9a0d350453663def33c1e2ff0d9e060acc8889254491c34e5411d271
-      - type: archive
-        dest: external/linphone-sdk/liblinphone
-        url: https://github.com/BelledonneCommunications/liblinphone/archive/refs/tags/5.4.106.tar.gz
-        sha256: 0ad0e4b758a4cc780e0d3dc3e2188a59c1c9221c132338f1791cad7446d8d9e5
-      - type: archive
-        dest: external/linphone-sdk/lime
-        url: https://github.com/BelledonneCommunications/lime/archive/refs/tags/5.4.106.tar.gz
-        sha256: 64d237202c3f71d9e63b94de5cb36ff4517d2fce21a9d7e0c37be3df205aa5ee
-      - type: archive
-        dest: external/linphone-sdk/mediastreamer2
-        url: https://github.com/BelledonneCommunications/mediastreamer2/archive/refs/tags/5.4.106.tar.gz
-        sha256: b9fa823ab5802cb14397a015de386ed4f54e5ff9b82551f8e0f009d0ef6eecb1
-      - type: archive
-        dest: external/linphone-sdk/msopenh264
-        url: https://github.com/BelledonneCommunications/msopenh264/archive/refs/tags/5.4.58.tar.gz
-        sha256: 550fad8981551a760d16581fddbbc5ee805c857d3add5f22fc96c1e7d595d736
-      - type: archive
-        dest: external/linphone-sdk/mswebrtc
-        url: https://github.com/BelledonneCommunications/mswebrtc/archive/refs/tags/5.5.0-alpha.tar.gz
-        sha256: 8d4546eb390b9f2024284128b2821b410b937d76a16abf34695349fb7347bff2
+        url: https://github.com/BelledonneCommunications/bcmatroska2/archive/refs/tags/5.6.0-alpha.tar.gz
+        sha512: 6867a725c3ec411fe0e421d3fd791c61deb5e807598badfb4dd7fb394d64a28a54f2241e9b07b831792ea973f0139a78f056ea0b91e16953efde909ea06c9069
       - type: archive
         dest: external/linphone-sdk/mswebrtc/webrtc/
         # Reproducible alternative to:
         # url: https://webrtc.googlesource.com/src/+archive/d153a37801d9b1258ffff9f878064fa0ddfd3b0a.tar.gz
         url: https://github.com/webrtc-mirror/webrtc/archive/d153a37801d9b1258ffff9f878064fa0ddfd3b0a.zip
         sha256: eec20fee341c6d6edc096060415ce96356a4ddf05a8724c3384c106bc12420bd
-      - type: archive
-        dest: external/linphone-sdk/ortp
-        url: https://github.com/BelledonneCommunications/ortp/archive/refs/tags/5.4.106.tar.gz
-        sha256: 9f35f73246be724adc0de96535701419d3b0c6369203c89e4fbf4a0227cc39ca
-      - type: archive
-        dest: external/linphone-sdk/postquantumcryptoengine
-        # Same as all the releases in the 5.4.X series only 5.4.106 is missing
-        url: https://github.com/BelledonneCommunications/postquantumcryptoengine/archive/refs/tags/5.4.102.tar.gz
-        sha256: c4bd907140a34562d4e6de306d00804fd56d3e6cba56dd6d987433c4b9ac3b41
       - type: archive
         dest: external/linphone-sdk/external/bv16-floatingpoint
         # NOTE:
@@ -318,6 +265,15 @@ modules:
           stable-only: true
           # Not that this is expected to ever receive an update
           url-template: https://www.quut.com/gsm/gsm-$version.tar.gz
+      - type: archive
+        dest: external/linphone-sdk/external/hidapi
+        url: https://github.com/libusb/hidapi/archive/refs/tags/hidapi-0.15.0.tar.gz
+        sha512: a4ddd13a80a84956872fa52aa861b40e4959f301d8d91afe0feaf9dbd87394561e1fdd20cbf8cf47200845f80a8db8a934bc2e3025fe6f16435e37c17621e7b6
+        x-checker-data:
+          type: anitya
+          project-id: 5594
+          stable-only: true
+          url-template: https://github.com/libusb/hidapi/archive/refs/tags/hidapi-$version.tar.gz
       - type: archive
         dest: external/linphone-sdk/external/jsoncpp
         url: https://github.com/open-source-parsers/jsoncpp/archive/refs/tags/1.9.8.tar.gz
