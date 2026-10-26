@@ -202,6 +202,7 @@ modules:
       - -DGIT_BRANCH_NAME=6.2.3
       # Option added by `CMake-flatpak-packaging.patch`
       - -DFLATPAK_ID=org.linphone.linphone
+      - -DSOCI_INSTALL=ON
     post-install:
       - desktop-file-edit --set-key="Icon" --set-value="${FLATPAK_ID}" ${FLATPAK_DEST}/share/applications/linphone.desktop
     sources:
@@ -316,8 +317,8 @@ modules:
         sha256: b2e0aca477bdb063f8d2a0aaee91bba18071404efae1c5ff2734257317c5f060
       - type: archive
         dest: external/linphone-sdk/external/soci
-        url: https://github.com/SOCI/soci/archive/refs/tags/v4.1.2.tar.gz
-        sha256: c0974067e57242f21d9a85677c5f6cc7848fba3cbd5ec58d76c95570a5a7a15b
+        url: https://github.com/SOCI/soci/archive/refs/tags/v4.1.4.tar.gz
+        sha512: 0553fb7856c77158b229c33fb7a14402f9d740825db5b0c0c4cbbbc2596faa56b099f7e13bece5af506311c393e6fcb4e8b448522d15bba57c6dd0d23e6467c1
         x-checker-data:
           type: anitya
           project-id: 11081
