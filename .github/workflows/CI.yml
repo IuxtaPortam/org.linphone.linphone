@@ -9,7 +9,7 @@ jobs:
   flatpak:
     name: "Flatpak"
     container:
-      image: ghcr.io/flathub-infra/flatpak-github-actions:kde-6.11
+      image: quay.io/ferenc/kde-6.11:gh-action
       options: --privileged
     strategy:
       matrix:
