@@ -4,6 +4,11 @@ on:
   push:
     branches: [main]
   pull_request:
+    paths:
+      - .github/workflows/CI.yml # Run check on self change
+      - org.linphone.linphone.metainfo.xml
+      - org.linphone.linphone.yml
+      - patches
 
 jobs:
   flatpak:
