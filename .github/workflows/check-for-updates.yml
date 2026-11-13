@@ -12,13 +12,12 @@ jobs:
 
     strategy:
       matrix:
-        branch: [master] # list all branches to check
+        branch: [main] # list all branches to check
 
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
         with:
           ref: ${{ matrix.branch }}
-
       - uses: docker://ghcr.io/flathub/flatpak-external-data-checker:latest
         env:
           GIT_AUTHOR_NAME: Flatpak External Data Checker
