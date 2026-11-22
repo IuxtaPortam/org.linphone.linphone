@@ -1,0 +1,37 @@
+name: Validate appstream metadata xml
+on:
+  push:
+    branches: [main]
+  pull_request:
+    paths:
+      - .github/workflows/appstream-check.yaml  # Run check on self change
+      - org.linphone.linphone.metainfo.xml
+
+jobs:
+  validate-appstream:
+    name: Validate appstream metadata xml
+    runs-on: ubuntu-26.04
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 1
+          sparse-checkout: |
+            org.linphone.linphone.metainfo.xml
+
+      - name: Install appstream validator and flatpak Builder
+        shell: bash
+        run: |
+          sudo apt update -y
+          sudo apt install -y \
+              flatpak
+          sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+          sudo flatpak install -y org.flatpak.Builder
+
+      - name: Lint appstream data with flatpak Builder
+        shell: bash
+        run: flatpak run --command=flatpak-builder-lint org.flatpak.Builder appstream org.linphone.linphone.metainfo.xml
+
+      - name: Run appstreamcli in pedantic mode
+        shell: bash
+        run: flatpak run --command=appstreamcli org.flatpak.Builder validate --pedantic org.linphone.linphone.metainfo.xml
