@@ -26,6 +26,11 @@ jobs:
           sudo apt install -y \
               flatpak
           sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+          sudo flatpak mask 'org.freedesktop.Platform.GL.*'
+          sudo flatpak mask 'org.freedesktop.Platform.codecs*'
+          sudo flatpak mask 'org.freedesktop.Platform.VAAPI*'
+          sudo flatpak mask 'org.freedesktop.Sdk.Locale'
+
           sudo flatpak install -y org.flatpak.Builder
 
       - name: Lint appstream data with flatpak Builder
