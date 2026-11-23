@@ -68,6 +68,37 @@
     <category>Telephony</category>
   </categories>
   <releases>
+    <release version="6.2.4" date="2026-10-22">
+      <description>
+        <p>Added</p>
+        <ul>
+          <li>DTMF can be sent with keyboard without opening the numeric pad during a call</li>
+          <li>"All/Missed" filter in call history</li>
+          <li>Call forwarding and voicemail settings links</li>
+          <li>Setting to host merged calls in a local conference</li>
+          <li>Setting to disable USB/HID headset controls</li>
+        </ul>
+        <p>Fixed</p>
+        <ul>
+          <li>Accessibility:</li>
+          <li>* global key navigation improved</li>
+          <li>* add missing names for annoucement and apply naming conventions</li>
+          <li>* add missing open/close actions for popups and list menus</li>
+          <li>* force focus on first item when opening a menu</li>
+          <li>* audio volume sliders exposed as percent values</li>
+          <li>Improve emoji selector performance</li>
+          <li>End to end security not forced when creating a meeting if it is unavailable</li>
+          <li>Crash when opening the numeric pad for the second time during a call</li>
+          <li>Participant names in conference</li>
+        </ul>
+        <p>Changed</p>
+        <ul>
+          <li>Simplify the call window UI when calls are merged into a local conference</li>
+          <li>Translations update</li>
+          <li>SDK version is now 5.5.36</li>
+        </ul>
+      </description>
+    </release>
     <release version="6.2.3" date="2026-09-22">
       <description>
         <p>Fixed</p>
