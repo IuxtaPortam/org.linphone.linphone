@@ -286,8 +286,8 @@ modules:
           url-template: https://github.com/open-source-parsers/jsoncpp/archive/refs/tags/$version.tar.gz
       - type: archive
         dest: external/linphone-sdk/external/liboqs
-        url: https://github.com/open-quantum-safe/liboqs/archive/refs/tags/0.15.0.tar.gz
-        sha256: 3983f7cd1247f37fb76a040e6fd684894d44a84cecdcfbdb90559b3216684b5c
+        url: https://github.com/open-quantum-safe/liboqs/archive/refs/tags/0.16.0.tar.gz
+        sha512: 492cefb8773f5736a11984c951dbbffde555a16d0599d417fdb008627d2ff0efd5742294be7e4936ad6836b5c7dc3c32e2f4537bf1e8dd4deb5ac5f4be87a974
         x-checker-data:
           type: anitya
           project-id: 364436
@@ -345,5 +345,6 @@ modules:
           - patches/sdk/external/liboqs/Export-OQS_KEM_hqc_128-and-256_length.patch
           - patches/sdk/external/libyuv/FindTurboJpeg-and-CMake-integration.patch
           - patches/sdk/external/xerces-c/Fix-C++-minimum-level.patch
+          - patches/sdk/postquantumcryptoengine/adapt-to-renamed-functions-and-new-key-length-in-0.16.0.patch
       - type: file
         path: org.linphone.linphone.metainfo.xml
