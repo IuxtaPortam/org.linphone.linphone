@@ -1,0 +1,159 @@
+diff --git a/external/linphone-sdk/postquantumcryptoengine/src/crypto.cc b/external/linphone-sdk/postquantumcryptoengine/src/crypto.cc
+index 85b9c7da7b..237de42a69 100644
+--- a/external/linphone-sdk/postquantumcryptoengine/src/crypto.cc
++++ b/external/linphone-sdk/postquantumcryptoengine/src/crypto.cc
+@@ -65,18 +65,18 @@ static_assert(KYBER1024::kPkSize == OQS_KEM_kyber_1024_length_public_key, "forwa
+ static_assert(KYBER1024::kCtSize == OQS_KEM_kyber_1024_length_ciphertext, "forwarding oqs kyber define mismatch");
+ static_assert(KYBER1024::kSsSize == OQS_KEM_kyber_1024_length_shared_secret, "forwarding oqs kyber define mismatch");
+ 
+-static_assert(HQC128::kSkSize == OQS_KEM_hqc_128_length_secret_key, "forwarding oqs hqc define mismatch");
+-static_assert(HQC128::kPkSize == OQS_KEM_hqc_128_length_public_key, "forwarding oqs hqc define mismatch");
+-static_assert(HQC128::kCtSize == OQS_KEM_hqc_128_length_ciphertext, "forwarding oqs hqc define mismatch");
+-static_assert(HQC128::kSsSize == OQS_KEM_hqc_128_length_shared_secret, "forwarding oqs hqc define mismatch");
+-static_assert(HQC192::kSkSize == OQS_KEM_hqc_192_length_secret_key, "forwarding oqs hqc define mismatch");
+-static_assert(HQC192::kPkSize == OQS_KEM_hqc_192_length_public_key, "forwarding oqs hqc define mismatch");
+-static_assert(HQC192::kCtSize == OQS_KEM_hqc_192_length_ciphertext, "forwarding oqs hqc define mismatch");
+-static_assert(HQC192::kSsSize == OQS_KEM_hqc_192_length_shared_secret, "forwarding oqs hqc define mismatch");
+-static_assert(HQC256::kSkSize == OQS_KEM_hqc_256_length_secret_key, "forwarding oqs hqc define mismatch");
+-static_assert(HQC256::kPkSize == OQS_KEM_hqc_256_length_public_key, "forwarding oqs hqc define mismatch");
+-static_assert(HQC256::kCtSize == OQS_KEM_hqc_256_length_ciphertext, "forwarding oqs hqc define mismatch");
+-static_assert(HQC256::kSsSize == OQS_KEM_hqc_256_length_shared_secret, "forwarding oqs hqc define mismatch");
++static_assert(HQC128::kSkSize == OQS_KEM_hqc_1_length_secret_key, "forwarding oqs hqc define mismatch");
++static_assert(HQC128::kPkSize == OQS_KEM_hqc_1_length_public_key, "forwarding oqs hqc define mismatch");
++static_assert(HQC128::kCtSize == OQS_KEM_hqc_1_length_ciphertext, "forwarding oqs hqc define mismatch");
++static_assert(HQC128::kSsSize == OQS_KEM_hqc_1_length_shared_secret, "forwarding oqs hqc define mismatch");
++static_assert(HQC192::kSkSize == OQS_KEM_hqc_3_length_secret_key, "forwarding oqs hqc define mismatch");
++static_assert(HQC192::kPkSize == OQS_KEM_hqc_3_length_public_key, "forwarding oqs hqc define mismatch");
++static_assert(HQC192::kCtSize == OQS_KEM_hqc_3_length_ciphertext, "forwarding oqs hqc define mismatch");
++static_assert(HQC192::kSsSize == OQS_KEM_hqc_3_length_shared_secret, "forwarding oqs hqc define mismatch");
++static_assert(HQC256::kSkSize == OQS_KEM_hqc_5_length_secret_key, "forwarding oqs hqc define mismatch");
++static_assert(HQC256::kPkSize == OQS_KEM_hqc_5_length_public_key, "forwarding oqs hqc define mismatch");
++static_assert(HQC256::kCtSize == OQS_KEM_hqc_5_length_ciphertext, "forwarding oqs hqc define mismatch");
++static_assert(HQC256::kSsSize == OQS_KEM_hqc_5_length_shared_secret, "forwarding oqs hqc define mismatch");
+ 
+ K25519::K25519(int hashId){
+ 	this->mName = BCTBX_ECDH_X25519;
+@@ -242,7 +242,7 @@ int HQC128::keyGen(vector<uint8_t> &pk, vector<uint8_t> &sk) const noexcept {
+ 	sk.resize(kSkSize);
+ 
+ 	// Key pair generation function with HQC128
+-	return OQS_KEM_hqc_128_keypair(pk.data(), sk.data());
++	return OQS_KEM_hqc_1_keypair(pk.data(), sk.data());
+ }
+ 
+ int HQC128::encaps(vector<uint8_t> &ct, vector<uint8_t> &ss, const vector<uint8_t> &pk) const noexcept {
+@@ -250,14 +250,14 @@ int HQC128::encaps(vector<uint8_t> &ct, vector<uint8_t> &ss, const vector<uint8_
+ 	ss.resize(kSsSize);
+ 
+ 	// Key encapsulation with HQC128
+-	return OQS_KEM_hqc_128_encaps(ct.data(), ss.data(), pk.data());
++	return OQS_KEM_hqc_1_encaps(ct.data(), ss.data(), pk.data());
+ }
+ 
+ int HQC128::decaps(vector<uint8_t> &ss, const vector<uint8_t> &ct, const vector<uint8_t> &sk) const noexcept {
+ 	ss.resize(kSsSize);
+ 
+ 	// Key decapsulation with HQC128
+-	return OQS_KEM_hqc_128_decaps(ss.data(), ct.data(), sk.data());
++	return OQS_KEM_hqc_1_decaps(ss.data(), ct.data(), sk.data());
+ }
+ 
+ int HQC192::keyGen(vector<uint8_t> &pk, vector<uint8_t> &sk) const noexcept {
+@@ -265,7 +265,7 @@ int HQC192::keyGen(vector<uint8_t> &pk, vector<uint8_t> &sk) const noexcept {
+ 	sk.resize(kSkSize);
+ 
+ 	// Key pair generation function with HQC192
+-	return OQS_KEM_hqc_192_keypair(pk.data(), sk.data());
++	return OQS_KEM_hqc_3_keypair(pk.data(), sk.data());
+ }
+ 
+ int HQC192::encaps(vector<uint8_t> &ct, vector<uint8_t> &ss, const vector<uint8_t> &pk) const noexcept {
+@@ -273,14 +273,14 @@ int HQC192::encaps(vector<uint8_t> &ct, vector<uint8_t> &ss, const vector<uint8_
+ 	ss.resize(kSsSize);
+ 
+ 	// Key encapsulation with HQC192
+-	return OQS_KEM_hqc_192_encaps(ct.data(), ss.data(), pk.data());
++	return OQS_KEM_hqc_3_encaps(ct.data(), ss.data(), pk.data());
+ }
+ 
+ int HQC192::decaps(vector<uint8_t> &ss, const vector<uint8_t> &ct, const vector<uint8_t> &sk) const noexcept {
+ 	ss.resize(kSsSize);
+ 
+ 	// Key decapsulation with HQC192
+-	return OQS_KEM_hqc_192_decaps(ss.data(), ct.data(), sk.data());
++	return OQS_KEM_hqc_3_decaps(ss.data(), ct.data(), sk.data());
+ }
+ 
+ int HQC256::keyGen(vector<uint8_t> &pk, vector<uint8_t> &sk) const noexcept {
+@@ -288,7 +288,7 @@ int HQC256::keyGen(vector<uint8_t> &pk, vector<uint8_t> &sk) const noexcept {
+ 	sk.resize(kSkSize);
+ 
+ 	// Key pair generation function with HQC256
+-	return OQS_KEM_hqc_256_keypair(pk.data(), sk.data());
++	return OQS_KEM_hqc_5_keypair(pk.data(), sk.data());
+ }
+ 
+ int HQC256::encaps(vector<uint8_t> &ct, vector<uint8_t> &ss, const vector<uint8_t> &pk) const noexcept {
+@@ -296,14 +296,14 @@ int HQC256::encaps(vector<uint8_t> &ct, vector<uint8_t> &ss, const vector<uint8_
+ 	ss.resize(kSsSize);
+ 
+ 	// Key encapsulation with HQC256
+-	return OQS_KEM_hqc_256_encaps(ct.data(), ss.data(), pk.data());
++	return OQS_KEM_hqc_5_encaps(ct.data(), ss.data(), pk.data());
+ }
+ 
+ int HQC256::decaps(vector<uint8_t> &ss, const vector<uint8_t> &ct, const vector<uint8_t> &sk) const noexcept {
+ 	ss.resize(kSsSize);
+ 
+ 	// Key decapsulation with HQC256
+-	return OQS_KEM_hqc_256_decaps(ss.data(), ct.data(), sk.data());
++	return OQS_KEM_hqc_5_decaps(ss.data(), ct.data(), sk.data());
+ }
+ 
+ /* KEM INTERFACE FOR CLASSIC ALGORITHMS */
+diff --git a/external/linphone-sdk/postquantumcryptoengine/include/postquantumcryptoengine/crypto.hh b/external/linphone-sdk/postquantumcryptoengine/include/postquantumcryptoengine/crypto.hh
+index 19645675e7..060b57eab9 100644
+--- a/external/linphone-sdk/postquantumcryptoengine/include/postquantumcryptoengine/crypto.hh
++++ b/external/linphone-sdk/postquantumcryptoengine/include/postquantumcryptoengine/crypto.hh
+@@ -239,10 +239,10 @@ public:
+  */
+ class HQC128 : public KEMCRTP<HQC128> {
+ public:
+-	constexpr static size_t kSkSize = 2305;
+-	constexpr static size_t kPkSize = 2249;
++	constexpr static size_t kSkSize = 2321;
++	constexpr static size_t kPkSize = 2241;
+ 	constexpr static size_t kCtSize = 4433;
+-	constexpr static size_t kSsSize = 64;
++	constexpr static size_t kSsSize = 32;
+ 
+ 	int keyGen(std::vector<uint8_t> &pk, std::vector<uint8_t> &sk) const noexcept override;
+ 	int encaps(std::vector<uint8_t> &ct, std::vector<uint8_t> &ss, const std::vector<uint8_t> &pk) const noexcept override;
+@@ -256,10 +256,10 @@ public:
+  */
+ class HQC192 : public KEMCRTP<HQC192> {
+ public:
+-	constexpr static size_t kSkSize = 4586;
+-	constexpr static size_t kPkSize = 4522;
++	constexpr static size_t kSkSize = 4602;
++	constexpr static size_t kPkSize = 4514;
+ 	constexpr static size_t kCtSize = 8978;
+-	constexpr static size_t kSsSize = 64;
++	constexpr static size_t kSsSize = 32;
+ 
+ 	int keyGen(std::vector<uint8_t> &pk, std::vector<uint8_t> &sk) const noexcept override;
+ 	int encaps(std::vector<uint8_t> &ct, std::vector<uint8_t> &ss, const std::vector<uint8_t> &pk) const noexcept override;
+@@ -273,10 +273,10 @@ public:
+  */
+ class HQC256 : public KEMCRTP<HQC256> {
+ public:
+-	constexpr static size_t kSkSize = 7317;
+-	constexpr static size_t kPkSize = 7245;
++	constexpr static size_t kSkSize = 7333;
++	constexpr static size_t kPkSize = 7237;
+ 	constexpr static size_t kCtSize = 14421;
+-	constexpr static size_t kSsSize = 64;
++	constexpr static size_t kSsSize = 32;
+ 
+ 	int keyGen(std::vector<uint8_t> &pk, std::vector<uint8_t> &sk) const noexcept override;
+ 	int encaps(std::vector<uint8_t> &ct, std::vector<uint8_t> &ss, const std::vector<uint8_t> &pk) const noexcept override;
