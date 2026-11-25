@@ -8,6 +8,7 @@ rename-icon: linphone
 finish-args:
   # NOTE: As long as /dev/video is directly needed and neither the Camera portal nor device=usb helps (also used for USB microphones)
   - --device=all
+  - --filesystem=xdg-documents:create # Needed for saving call recordings
   - --share=ipc
   - --share=network
   - --socket=fallback-x11
