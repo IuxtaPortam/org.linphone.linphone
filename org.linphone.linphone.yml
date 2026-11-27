@@ -208,8 +208,8 @@ modules:
       - desktop-file-edit --set-key="Icon" --set-value="${FLATPAK_ID}" ${FLATPAK_DEST}/share/applications/linphone.desktop
     sources:
       - type: archive
-        url: https://github.com/BelledonneCommunications/linphone-desktop/archive/refs/tags/6.2.4.tar.gz
-        sha512: e7d245a3b1a2cfe65ae55056ea22982b1e78bc5f95774cc970e1bcbf16a323f93b16a5977cd3e7e725e2658bfdab9c8e0a29052182264cd71c072abae7b4d916
+        url: https://github.com/BelledonneCommunications/linphone-desktop/archive/refs/tags/6.2.5.tar.gz
+        sha512: 9a518213e07381461614ed4b8805bfe88f2c417da9a0d335a9e6d44e5f67d1f3b087f913c112c1d9e3a7dad1a6f1497df9282bc5f9c0cbc4a2efa7a6d8001963
         x-checker-data:
           type: anitya
           project-id: 1823
@@ -248,8 +248,8 @@ modules:
         sha256: 07fb1ca72bd9eeb18e8298d899fac0ca9d956b9f9d623a3958befb5279b4250a
       - type: archive
         dest: external/linphone-sdk/external/decaf
-        url: https://downloads.sourceforge.net/project/ed448goldilocks/libdecaf-1.0.3.tgz
-        sha256: bb2952e006a5ec983edd4895719cc258d099e4bc4f09f5352045f824f042ebd0
+        url: https://sourceforge.net/projects/ed448goldilocks/files/libdecaf-1.0.5.tgz
+        sha256: e239a26fd6f51d16882dd2c1fcf3643610d1db2611336055bd622d50a3288259
         x-checker-data:
           type: html
           url: https://sourceforge.net/p/ed448goldilocks/activity/feed
