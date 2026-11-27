@@ -248,8 +248,8 @@ modules:
         sha256: 07fb1ca72bd9eeb18e8298d899fac0ca9d956b9f9d623a3958befb5279b4250a
       - type: archive
         dest: external/linphone-sdk/external/decaf
-        url: https://downloads.sourceforge.net/project/ed448goldilocks/libdecaf-1.0.3.tgz
-        sha256: bb2952e006a5ec983edd4895719cc258d099e4bc4f09f5352045f824f042ebd0
+        url: https://sourceforge.net/projects/ed448goldilocks/files/libdecaf-1.0.5.tgz
+        sha256: e239a26fd6f51d16882dd2c1fcf3643610d1db2611336055bd622d50a3288259
         x-checker-data:
           type: html
           url: https://sourceforge.net/p/ed448goldilocks/activity/feed
