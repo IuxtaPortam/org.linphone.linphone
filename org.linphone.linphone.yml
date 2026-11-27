@@ -217,8 +217,8 @@ modules:
           url-template: https://github.com/BelledonneCommunications/linphone-desktop/archive/refs/tags/$version.tar.gz
       - type: archive
         dest: external/linphone-sdk
-        url: https://github.com/BelledonneCommunications/linphone-sdk/archive/refs/tags/5.5.36.tar.gz
-        sha512: b1e120104852ca623a66b796118c875b22b75a8e31637ab26627d96d8a799b0bd22b6ed7fcc132d421a42ad194ae8dd7fce03b14c3aca143d5f7a9cdfa067906
+        url: https://github.com/BelledonneCommunications/linphone-sdk/archive/refs/tags/5.5.42.tar.gz
+        sha512: 60fd04301c36e34e10211d12691a71f318677f4658af5eeeac5a2fdce27d46038fac541cbabcafa75c6d49fdd16eee89aae5a618bbf55bedc32fd8eb3467a8e8
       - type: archive
         dest: external/linphone-sdk/bcg729
         url: https://github.com/BelledonneCommunications/bcg729/archive/refs/tags/1.1.2.tar.gz
