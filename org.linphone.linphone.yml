@@ -197,10 +197,10 @@ modules:
       - -DLINPHONEAPP_INSTALL_PREFIX=/app/
       - -DLINPHONESDK_PLATFORM=Desktop
       # While this seems redundandt, without this `bctoolbox` is not buildable from archive, as cmake would try to use git to read the repo
-      - -DLINPHONESDK_VERSION=5.5.36 # Also Linphone-desktop needs this
+      - -DLINPHONESDK_VERSION=5.5.42 # Also Linphone-desktop needs this
       # While this seems redundandt, without this `bctoolbox` is not buildable from archive, as cmake would try to use git to read the repo
-      - -DLINPHONEAPP_VERSION=6.2.4
-      - -DGIT_BRANCH_NAME=6.2.4
+      - -DLINPHONEAPP_VERSION=6.2.5
+      - -DGIT_BRANCH_NAME=6.2.5
       # Option added by `CMake-flatpak-packaging.patch`
       - -DFLATPAK_ID=org.linphone.linphone
       - -DSOCI_INSTALL=ON
