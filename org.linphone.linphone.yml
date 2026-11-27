@@ -83,7 +83,7 @@ modules:
           type: anitya
           project-id: 2551
           stable-only: true
-          url-template: https://github.com/openldap/openldap/archive/refs/tags/OPENLDAP_REL_ENG_${version0}_${version1}_version2.tar.gz
+          url-template: https://github.com/openldap/openldap/archive/refs/tags/OPENLDAP_REL_ENG_${version0}_${version1}_${version2}.tar.gz
       - type: patch
         paths:
           - patches/openldap/ldap-opt-x-tls-peer-cn.patch
@@ -252,7 +252,7 @@ modules:
         sha256: bb2952e006a5ec983edd4895719cc258d099e4bc4f09f5352045f824f042ebd0
         x-checker-data:
           type: html
-          url: https://sourceforge.net/p/ed448goldilocks/activity/feed",
+          url: https://sourceforge.net/p/ed448goldilocks/activity/feed
           pattern: "<link>(https://sourceforge.net/projects/ed448goldilocks/files/libdecaf-([\\d\\.]+\\d).tgz)/download</link>"
       - type: archive
         dest: external/linphone-sdk/external/gsm
@@ -322,7 +322,7 @@ modules:
         sha512: 0553fb7856c77158b229c33fb7a14402f9d740825db5b0c0c4cbbbc2596faa56b099f7e13bece5af506311c393e6fcb4e8b448522d15bba57c6dd0d23e6467c1
         x-checker-data:
           type: anitya
-          project-id: 11081
+          project-id: 4849
           stable-only: true
           url-template: https://github.com/SOCI/soci/archive/refs/tags/v$version.tar.gz
       - type: archive
