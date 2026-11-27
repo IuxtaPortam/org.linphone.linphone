@@ -5,6 +5,13 @@ on:
     - cron: "0 9 * * *" # run once a day at 09:00
       timezone: "Europe/Amsterdam"
   workflow_dispatch: # can be manually dispatched under GitHub's "Actions" tab
+  pull_request:
+    paths:
+      - .github/workflows/check-for-updates.yml  # Run check on self change
+
+permissions:
+  pull-requests: write
+  contents: write
 
 jobs:
   flatpak-external-data-checker:
@@ -28,6 +35,8 @@ jobs:
           GIT_COMMITTER_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
           # Built-in automatically created:
           # https://docs.github.com/en/actions/concepts/security/github_token
+          # But also needs the `permissions` section properly filled out to grant privileges:
+          # https://docs.github.com/en/actions/tutorials/authenticate-with-github_token#modifying-the-permissions-for-the-github_token
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           args: --update --never-fork org.linphone.linphone.yml
